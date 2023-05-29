@@ -1,0 +1,38 @@
+form{
+}
+
+.formGroup{
+     display: flex;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: flex-start; */
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+label{
+    font-size: large;
+    font-weight: bold;
+}
+
+input{
+    padding: 8px;
+    outline: none;
+    font-size: medium;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+input:focus{
+    border-color: cadetblue;
+}
+
+button{
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+}

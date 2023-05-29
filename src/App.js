@@ -1,9 +1,14 @@
 import './App.css';
+import ContactApp from './container/ContactApp/ContactApp';
+import Layout from './layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Layout>
+      <div className="App">
+        <ContactApp />
+      </div>
+    </Layout>
   );
 }
 

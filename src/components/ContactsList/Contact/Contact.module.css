@@ -1,0 +1,32 @@
+.contactItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    background: rgb(207, 230, 238);
+    margin: 8px 0;
+}
+
+.contactInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.meta{
+    display: flex;
+    flex-direction: column;
+}
+
+.delete{
+    color: red;
+    cursor: pointer;
+}
+
+img{
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+}
