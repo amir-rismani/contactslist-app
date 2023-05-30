@@ -1,0 +1,16 @@
+nav{
+
+}
+a{
+    text-decoration: none;
+}
+ul{
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+}
+
+.active{
+    font-weight: bold;;
+    color: brown;
+}

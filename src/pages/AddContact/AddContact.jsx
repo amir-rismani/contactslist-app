@@ -1,10 +1,12 @@
 import { useState } from "react";
 import styles from "./AddComment.module.css"
-const AddContact = ({ onAdd }) => {
+import { useNavigate } from "react-router-dom";
+const AddContact = () => {
     const [contact, setContact] = useState({
         name: "",
         email: ""
-    })
+    });
+    const navigate = useNavigate();
 
     const changeHandler = (event) => {
         setContact({
@@ -13,16 +15,20 @@ const AddContact = ({ onAdd }) => {
         })
     }
 
+    const addHanlder = () => {
+        let contacts = JSON.parse(localStorage.getItem('contacts') || [])
+        contacts = [...contacts, { ...contact, id: new Date().getTime() }];
+        localStorage.setItem('contacts', JSON.stringify(contacts))
+        navigate('/');
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
         if (!contact.name || !contact.email) {
             alert('Please enter all mandatory fields.');
             return;
         }
-        onAdd({
-            ...contact,
-            id: new Date().getTime()
-        })
+        addHanlder();
         setContact({
             name: "",
             email: ""

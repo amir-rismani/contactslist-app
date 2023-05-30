@@ -7,7 +7,7 @@ const ContactsList = ({ contacts, onDelete }) => {
         renderList = <p>Contact not exist...</p>
     else
         renderList = <div>
-            {contacts.map(contact => <Contact contact={contact} onDelete={onDelete} />)}
+            {contacts.map(contact => <Contact key={contact.id} contact={contact} onDelete={onDelete} />)}
         </div>
 
     return renderList;
