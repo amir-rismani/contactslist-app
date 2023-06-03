@@ -8,15 +8,16 @@ const ContactApp = () => {
 
     const getAllContacts = async () => {
         try {
-            const allContacts = await getContacts();
-            setContacts(allContacts.data)
-
+            const { data } = await getContacts();
+            console.log(data);
+            setContacts(data);
         } catch (error) {
             console.log(error)
         }
     }
 
     useEffect(() => {
+        console.log('injaaaaaaaaaaa');
         getAllContacts();
     }, [])
 

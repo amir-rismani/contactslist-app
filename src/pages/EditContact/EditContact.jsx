@@ -1,14 +1,16 @@
 import { useState } from "react";
-import styles from "./AddContact.module.css"
-import { useNavigate } from "react-router-dom";
-import addContactItem from "../../services/addContact";
-const AddContact = () => {
-    const [contact, setContact] = useState({
-        name: "",
-        email: ""
-    });
-    const navigate = useNavigate();
+import styles from "./EditContact.module.css"
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import editContactItem from "../../services/editContact";
+const EditContact = () => {
+    const location = useLocation();
 
+    const [contact, setContact] = useState({
+        name: location.state?.name,
+        email: location.state?.email
+    });
+    const params = useParams();
+    const navigate = useNavigate();
     const changeHandler = (event) => {
         setContact({
             ...contact,
@@ -16,10 +18,9 @@ const AddContact = () => {
         })
     }
 
-    const addHanlder = async () => {
-        const contactItem = { ...contact, id: new Date().getTime() }
+    const editHanlder = async () => {
         try {
-            await addContactItem(contactItem)
+            await editContactItem(params.id, contact);
             navigate('/');
         } catch (error) {
             console.log(error)
@@ -32,14 +33,14 @@ const AddContact = () => {
             alert('Please enter all mandatory fields.');
             return;
         }
-        addHanlder();
+        editHanlder();
         setContact({
             name: "",
             email: ""
         })
     }
-    <button type="submit">Add contact</button>
-    return (<><h2>Add New Contact</h2><form onSubmit={submitHandler}>
+    <button type="submit">Edit contact</button>
+    return (<><h2>Edit Contact</h2><form onSubmit={submitHandler}>
         <div className={styles.formGroup}>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" value={contact.name} onChange={changeHandler} />
@@ -49,9 +50,9 @@ const AddContact = () => {
             <input type="email" id="email" name="email" value={contact.email} onChange={changeHandler} />
         </div>
         <div className={styles.formGroup}>
-            <button type="submit">Add contact</button>
+            <button type="submit">Edit contact</button>
         </div>
     </form></>);
 }
 
-export default AddContact;
+export default EditContact;

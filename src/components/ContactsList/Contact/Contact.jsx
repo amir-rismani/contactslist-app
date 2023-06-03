@@ -1,4 +1,4 @@
-import { BiTrash } from "react-icons/bi";
+import { BiTrash, BiEditAlt } from "react-icons/bi";
 import styles from "./Contact.module.css"
 import Avatar from "../../../images/avatar.png"
 import { Link } from "react-router-dom";
@@ -16,8 +16,9 @@ const Contact = ({ contact, onDelete }) => {
         </div>
         <div className={styles.action}>
             <span onClick={() => onDelete(contact.id)}><BiTrash className={styles.delete} /></span>
+            <Link to={`/edit/${contact.id}`} state={{ name: contact.name, email: contact.email }}><span><BiEditAlt className={styles.edit} /></span></Link>
         </div>
-    </div>);
+    </div >);
 }
 
 export default Contact;

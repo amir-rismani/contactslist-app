@@ -1,7 +1,5 @@
 import http from "./http";
 
-const deleteContact = (contactId) => {
+export default function deleteContact(contactId) {
     return http.delete(`/contacts/${contactId}`);
 }
-
-export default deleteContact;

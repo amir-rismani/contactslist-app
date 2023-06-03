@@ -24,9 +24,18 @@
     color: red;
     cursor: pointer;
 }
+.edit {
+    color: blue;
+    cursor: pointer;
+}
 
 img{
     width: 32px;
     height: 32px;
     border-radius: 100%;
+}
+.action{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: .5rem;
 }

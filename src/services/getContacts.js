@@ -1,6 +1,5 @@
 import http from "./http";
-const getContacts = () => {
+
+export default function getContacts (){
     return http.get('contacts');
 }
-
-export default getContacts;
