@@ -1,0 +1,19 @@
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgb(197, 227, 237);
+    border-radius: 5px;
+    gap: 1rem;
+}
+
+label{
+    margin-right: .3rem;
+}
+
+img.big{
+    width: 150px;
+    height: 150px;
+}

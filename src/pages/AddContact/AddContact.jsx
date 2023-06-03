@@ -34,7 +34,7 @@ const AddContact = () => {
             email: ""
         })
     }
-    return (<form onSubmit={submitHandler}>
+    return (<><h2>Add New Contact</h2><form onSubmit={submitHandler}>
         <div className={styles.formGroup}>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" value={contact.name} onChange={changeHandler} />
@@ -46,7 +46,7 @@ const AddContact = () => {
         <div className={styles.formGroup}>
             <button type="submit">Add contact</button>
         </div>
-    </form>);
+    </form></>);
 }
 
 export default AddContact;
