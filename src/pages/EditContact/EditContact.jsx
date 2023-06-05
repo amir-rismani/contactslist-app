@@ -2,25 +2,24 @@ import { useState } from "react";
 import styles from "./EditContact.module.css"
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import editContactItem from "../../services/editContact";
+
 const EditContact = () => {
     const location = useLocation();
-
+    const navigate = useNavigate();
     const [contact, setContact] = useState({
         name: location.state?.name,
         email: location.state?.email
     });
     const params = useParams();
-    const navigate = useNavigate();
     const changeHandler = (event) => {
         setContact({
             ...contact,
             [event.target.name]: event.target.value
         })
     }
-
-    const editHanlder = async () => {
+    const editHanlder = async (contactId, contact) => {
         try {
-            await editContactItem(params.id, contact);
+            await editContactItem(contactId, contact);
             navigate('/');
         } catch (error) {
             console.log(error)
@@ -33,7 +32,7 @@ const EditContact = () => {
             alert('Please enter all mandatory fields.');
             return;
         }
-        editHanlder();
+        editHanlder(params.id, contact);
         setContact({
             name: "",
             email: ""

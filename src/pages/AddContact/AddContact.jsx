@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./AddContact.module.css"
-import { useNavigate } from "react-router-dom";
 import addContactItem from "../../services/addContact";
+import { useNavigate } from "react-router-dom";
+
 const AddContact = () => {
     const [contact, setContact] = useState({
         name: "",
@@ -15,8 +16,7 @@ const AddContact = () => {
             [event.target.name]: event.target.value
         })
     }
-
-    const addHanlder = async () => {
+    const addHanlder = async (contact) => {
         const contactItem = { ...contact, id: new Date().getTime() }
         try {
             await addContactItem(contactItem)
@@ -32,7 +32,7 @@ const AddContact = () => {
             alert('Please enter all mandatory fields.');
             return;
         }
-        addHanlder();
+        addHanlder(contact);
         setContact({
             name: "",
             email: ""

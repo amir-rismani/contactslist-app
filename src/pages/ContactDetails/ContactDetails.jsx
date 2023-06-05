@@ -1,11 +1,11 @@
-import Avatar from "../../../images/avatar.png"
+import Avatar from "../../images/avatar.png"
 
 import { useParams } from "react-router-dom";
-import styles from "./Details.module.css";
+import styles from "./ContactDetails.module.css";
 import { useEffect, useState } from "react";
-import getContact from "../../../services/getContact"
+import getContact from "../../services/getContact"
 
-const Details = () => {
+const ContactDetails = () => {
     const [contact, setContact] = useState({})
     const params = useParams();
     useEffect(() => {
@@ -36,4 +36,4 @@ const Details = () => {
     );
 }
 
-export default Details;
+export default ContactDetails;

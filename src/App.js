@@ -7,7 +7,6 @@ function App() {
   return (
     <Layout>
       <div className="App">
-        {/* <ContactApp /> */}
         <WebRoutes />
       </div>
     </Layout>

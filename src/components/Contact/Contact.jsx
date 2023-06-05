@@ -1,6 +1,6 @@
 import { BiTrash, BiEditAlt } from "react-icons/bi";
 import styles from "./Contact.module.css"
-import Avatar from "../../../images/avatar.png"
+import Avatar from "../../images/avatar.png"
 import { Link } from "react-router-dom";
 
 const Contact = ({ contact, onDelete }) => {

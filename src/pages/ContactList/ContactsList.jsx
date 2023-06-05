@@ -1,15 +1,14 @@
+import Contact from "../../components/Contact/Contact";
 import { useEffect, useState } from "react";
-import ContactsList from "../../components/ContactsList/ContactsList";
 import getContacts from "../../services/getContacts";
 import deleteContact from "../../services/deleteContact";
 
-const ContactApp = () => {
+const ContactsList = () => {
     const [contacts, setContacts] = useState([])
 
     const getAllContacts = async () => {
         try {
             const { data } = await getContacts();
-            console.log(data);
             setContacts(data);
         } catch (error) {
             console.log(error)
@@ -17,7 +16,6 @@ const ContactApp = () => {
     }
 
     useEffect(() => {
-        console.log('injaaaaaaaaaaa');
         getAllContacts();
     }, [])
 
@@ -26,9 +24,16 @@ const ContactApp = () => {
         getAllContacts();
     }
 
-    return (<>
-        <ContactsList contacts={contacts} onDelete={deleteHanlder} />
-    </>);
+    let renderList = <p>Contacts are loading...</p>
+    if (!contacts.length)
+        renderList = <p>Contact not exist...</p>
+    else
+        renderList = <div>
+            <h2>Contacts List</h2>
+            {contacts.map(contact => <Contact key={contact.id} contact={contact} onDelete={deleteHanlder} />)}
+        </div>
+
+    return renderList;
 }
 
-export default ContactApp;
+export default ContactsList;
