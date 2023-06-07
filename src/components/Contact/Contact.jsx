@@ -18,7 +18,7 @@ const Contact = ({ contact, onDelete }) => {
             <span onClick={() => onDelete(contact.id)}><BiTrash className={styles.delete} /></span>
             <Link to={`/edit/${contact.id}`} state={{ name: contact.name, email: contact.email }}><span><BiEditAlt className={styles.edit} /></span></Link>
         </div>
-    </div >);
+    </div>);
 }
 
 export default Contact;
